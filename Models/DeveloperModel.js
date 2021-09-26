@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const DeveloperModelSchema = mongoose.Schema(
+const DeveloperSchema = mongoose.Schema(
   {
     content: {
         firstName: {type: String},
@@ -15,4 +15,4 @@ const DeveloperModelSchema = mongoose.Schema(
   }
 );
 
-export default mongoose.model('Developer', DeveloperModelSchema);
+export default mongoose.model('Developer', DeveloperSchema);

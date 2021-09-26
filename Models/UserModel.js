@@ -7,7 +7,16 @@ const UserSchema = mongoose.Schema(
         lastName: {type: String},
         email: {type: String},
         password: {type: String},
-        role:{type: String, enum: ['admin', 'writer', 'user']}
+        role:{type: String, enum: ['admin', 'writer', 'user']},
+        project: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Project'
+        },
+        posts: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: 'Post'
+        },
+        
     },
   },
   {

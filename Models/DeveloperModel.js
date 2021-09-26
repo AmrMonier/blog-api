@@ -7,7 +7,11 @@ const DeveloperSchema = mongoose.Schema(
         lastName: {type: String},
         email: {type: String},
         password: {type: String},
-        verified: {type: Boolean, default: false}
+        verified: {type: Boolean, default: false},
+        projects: {
+          type: mongoose.Schema.Types.ObjectId,
+           ref: 'Project'
+        }
     },
   },
   {

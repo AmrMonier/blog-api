@@ -5,14 +5,21 @@ mongooseConnection()
     const express = require('express')
     const cors = require('cors')
     const bodyParser = require('body-parser')
+    const exhbs = require('express-handlebars')
     
+
     const app = express()
     
+    app.engine('.hbs', exhbs({extname: '.hbs'}))
+    app.set('view engine', '.hbs')
+
+    
+
     app.use(cors())
     app.use(bodyParser.urlencoded({extended: true}))
     
     app.get('/', (req, res, next) => {
-        res.send('Server is running')
+        res.render('index')
     })
     
     const PORT = process.env.PORT || 5000

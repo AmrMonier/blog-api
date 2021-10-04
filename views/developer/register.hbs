@@ -1,0 +1,50 @@
+<main>
+  <div class="card">
+    <div class="card-header">
+      Register
+    </div>
+    <div class="card-body">
+      <form action="/developer/register" method="POST">
+        <div class="mb-3">
+          <label for="first-name" class="form-label">First Name</label>
+          <input type="text" class="form-control" id="first-name" name="firstName" 
+          value="{{#if errors.firstName}}{{errors.firstName.value}}{{else}}{{data.firstName}}{{/if}}"
+          required>
+          <small class="text-danger">{{errors.firstName.msg}}</small>
+        </div>
+        <div class="mb-3">
+          <label for="last-name" class="form-label">Last Name</label>
+          <input type="text" class="form-control" id="last-name" name="lastName" 
+          value="{{#if errors.lastName}}{{errors.lastName.value}}{{else}}{{data.lastName}}{{/if}}"
+          required>
+          <small class="text-danger">{{errors.lastName.msg}}</small>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email address</label>
+          <input type="email" class="form-control" id="email" aria-describedby="emailHelp" name="email" 
+          value="{{#if errors.email}}{{errors.email.value}}{{else}}{{data.email}}{{/if}}"
+          required>
+          <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
+          <small class="text-danger">
+            {{errors.email.msg}}
+          </small>
+        </div>
+
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" class="form-control" id="password" name="password" required>
+          <small class="text-danger">{{errors.password.msg}}</small>
+        </div>
+
+        <div class="mb-3">
+          <label for="password-confirm" class="form-label">Confirm Password</label>
+          <input type="password" class="form-control" id="password-confirm" name="c_password" required>
+          <small class="text-danger">{{errors.c_password.msg}}</small>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+    </div>
+  </div>
+</main>

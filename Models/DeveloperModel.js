@@ -1,8 +1,8 @@
-import mongoose from 'mongoose';
+const  mongoose  = require('mongoose');
 
 const DeveloperSchema = mongoose.Schema(
   {
-    content: {
+    
         firstName: {type: String},
         lastName: {type: String},
         email: {type: String},
@@ -12,11 +12,15 @@ const DeveloperSchema = mongoose.Schema(
           type: mongoose.Schema.Types.ObjectId,
            ref: 'Project'
         }
-    },
+    
   },
   {
     timestamps: true,
   }
 );
-
-export default mongoose.model('Developer', DeveloperSchema);
+DeveloperSchema.methods.toJSON = function() {
+  var obj = this.toObject();
+  delete obj.password;
+  return obj;
+ }
+module.exports =  mongoose.model('Developer', DeveloperSchema);

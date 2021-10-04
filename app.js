@@ -34,6 +34,7 @@ mongooseConnection()
     app.get('/', (req, res, next) => {
         res.render('index')
     })
+    app.use('/developer', developerRoutes)
     
     const PORT = process.env.PORT || 5000
     app.listen(PORT, (err) => {
